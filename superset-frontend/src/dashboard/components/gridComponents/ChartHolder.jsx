@@ -182,6 +182,7 @@ class ChartHolder extends React.Component {
       editMode,
       isComponentVisible,
       dashboardId,
+      vizType,
     } = this.props;
 
     // inherit the size of parent columns
@@ -217,6 +218,7 @@ class ChartHolder extends React.Component {
         onDrop={handleComponentDrop}
         disableDragDrop={isFocused}
         editMode={editMode}
+        style={getMobileStyle(vizType)}
       >
         {({ dropIndicatorProps, dragSourceRef }) => (
           <ResizableContainer
@@ -234,6 +236,7 @@ class ChartHolder extends React.Component {
             onResize={onResize}
             onResizeStop={onResizeStop}
             editMode={editMode}
+            hideResize={this.hideResize}
           >
             <div
               ref={dragSourceRef}
